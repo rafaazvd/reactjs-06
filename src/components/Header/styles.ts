@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  url?: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -17,8 +18,12 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      div {
+        display: flex;
+      }
       a {
-        color: #fff;
+        width: 76px;
+        height: 24px;
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
@@ -30,6 +35,28 @@ export const Container = styled.div<ContainerProps>`
         &:hover {
           opacity: 0.6;
         }
+      }
+      #list {
+        ${({ url }) =>
+          url === '/'
+            ? css`
+                color: #ffffff;
+              `
+            : css`
+                color: #ffffff;
+                opacity: 0.8;
+              `}
+      }
+      #import {
+        ${({ url }) =>
+          url === '/import'
+            ? css`
+                color: #ffffff;
+              `
+            : css`
+                color: #ffffff;
+                opacity: 0.8;
+              `}
       }
     }
   }
